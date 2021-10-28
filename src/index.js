@@ -11,9 +11,9 @@ app.engine('hbs', handlebars({
 app.set('view engine', 'hbs');
 
 app.all('/', (req, res) => {
-    res.render('index', { layout: false })
+    res.render('index');
 
-})
+});
 
 
 app.listen(port, () => console.log(`Life is good!!! Yor server is running on port ${port}...`));
