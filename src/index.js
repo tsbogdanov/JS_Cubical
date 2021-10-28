@@ -1,11 +1,18 @@
 const express = require('express');
 const port = 5000;
 const app = express();
+const path = require('path');
 
+const handlebars = require('express-handlebars');
+app.set('views', path.resolve('./src/views'))
+app.engine('hbs', handlebars({
+    extname: 'hbs'
+}));
+app.set('view engine', 'hbs');
 
 app.all('/', (req, res) => {
-    res.write("It's working");
-    res.end();
+    res.render('index', { layout: false })
+
 })
 
 
